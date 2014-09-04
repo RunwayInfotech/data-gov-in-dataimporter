@@ -2,6 +2,17 @@ import sys
 import json
 import sqlite3
 from itertools import repeat
+
+
+'''
+usage:
+
+1. Download data from data.gov.in in json format and save it as a file
+2. Update the field 'label' inside 'fields' in the json to reflect your column names.
+3. python jsonsqlite.py <JSON_FILENAME> <DB_FILENAME>  <TABLE_NAME> 
+
+ 
+'''
  
 def main(argv):
 	JSON_FILE = argv[1]
@@ -43,17 +54,3 @@ def get_column_names(data):
 
 if __name__ == "__main__":
 	main(sys.argv)
-    
-''' 
-foo = traffic[0]["foo"]
-bar = traffic[0]["bar"]
- 
-data = [foo, bar]
- 
-c = conn.cursor()
-c.execute('create table table_name (foo, bar)')
-c.execute('insert into table_name values (?,?)', data)
- 
-conn.commit()
-c.close()
-'''
