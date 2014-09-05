@@ -36,9 +36,12 @@ def main(argv):
 	data = jsondata['data']	
 	insert_query = 'insert into ' + TABLE_NAME + ' values(' + valuestr + ')'
 	values = list(repeat('?', len(columns)))
+	index = 0
 	for entry in data:
+		entry.insert(0,index)
 		c.execute(insert_query,entry)
-	
+		index = index + 1
+
 	conn.commit()
 	c.close()	
 	
@@ -46,9 +49,11 @@ def main(argv):
 
 def get_column_names(data):
 	fieldList = list()
+	fieldList.insert(0,'ID')
 	fields = data['fields']
 	for field in fields:
 		fieldList.append(field['label'])
+
 	return fieldList
 
 
