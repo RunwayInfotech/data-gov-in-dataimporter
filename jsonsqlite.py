@@ -8,8 +8,9 @@ from itertools import repeat
 usage:
 
 1. Download data from data.gov.in in json format and save it as a file
-2. Update the field 'label' inside 'fields' in the json to reflect your column names.
-3. python jsonsqlite.py <JSON_FILENAME> <DB_FILENAME>  <TABLE_NAME> 
+2. Create a sqlite db file
+3. Update the field 'label' inside 'fields' in the json to reflect your column names.
+4. python jsonsqlite.py <JSON_FILENAME> <DB_FILENAME>  <TABLE_NAME> 
 
  
 '''
