@@ -28,8 +28,10 @@ def main(argv):
 		output_dict['data'].append(temp)
 
 	output_json = json.dumps(output_dict)
+
 	with open(OUTPUT_JSON_FILE, 'w') as outfile:
-  		json.dump(output_json, outfile, sort_keys = True, indent = 4,)
+		outfile.write(str(output_json))
+
 
 
 
