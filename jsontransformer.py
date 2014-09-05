@@ -15,8 +15,6 @@ usage:
 def main(argv):
 	INPUT_JSON_FILE = argv[1]
 	OUTPUT_JSON_FILE = argv[2]
-	NEW_FIELDS = argv[3]
-	new_fields = NEW_FIELDS.split(",")
 
 	jsondata = json.load(open(INPUT_JSON_FILE))
 	fields = get_field_names(jsondata)
@@ -27,8 +25,6 @@ def main(argv):
 		temp = dict()
 		for i in range(len(entry)):
 			temp[fields[i]] = entry[i]
-		for i in new_fields:
-			temp[i] = None
 		output_dict['data'].append(temp)
 
 	output_json = json.dumps(output_dict)
