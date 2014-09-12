@@ -1,7 +1,7 @@
 data-gov-in-dataimporter
 ============================
 
-Python utility for importing data downloaded from data.gov.in into a sqlite database 
+Bunch of small Python utilities for importing data downloaded from data.gov.in into a sqlite database,json and other formats. Refer individual files for what they do.
 
 
 
