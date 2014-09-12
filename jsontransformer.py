@@ -6,8 +6,8 @@ import json
 usage:
 
 1. Download data from data.gov.in in json format and save it as a file
-2. Update the field 'label' inside 'fields' in the json to reflect your column names.
-3. python jsontransformer.py <INPUT_JSON_FILE> <OUTPUT_JSON_FILE>  <COMMA SEPARATED NEW FIELDS> 
+2. Update the field 'id' inside 'fields' in the json per your wish. If you want to remove any field, set its label to empty string
+3. python jsontransformer.py <INPUT_JSON_FILE> <OUTPUT_JSON_FILE>
 
  
 '''
@@ -24,7 +24,8 @@ def main(argv):
 	for entry in data:
 		temp = dict()
 		for i in range(len(entry)):
-			temp[fields[i]] = entry[i]
+			if fields[i]:
+				temp[fields[i]] = entry[i]
 		output_dict['data'].append(temp)
 
 	output_json = json.dumps(output_dict)
@@ -40,7 +41,7 @@ def get_field_names(data):
 	fields = data['fields']
 	
 	for field in fields:
-		fieldList.append(field['label'])
+		fieldList.append(field['id'])
 
 	return fieldList
 
